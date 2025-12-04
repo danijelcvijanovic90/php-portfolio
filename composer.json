@@ -1,0 +1,15 @@
+{
+    "name": "dcpc/php-final_project",
+    "autoload": {
+        "psr-4": {
+            "PROJECT\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "danijelcvijanovic90",
+            "email": "danijel.cvijanovic90@gmail.com"
+        }
+    ],
+    "require": {}
+}
