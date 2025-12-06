@@ -11,7 +11,7 @@ class Form_message extends Db
 
 
 
-    public function new_message(string $name, string $email, int $phone_number,string $message): void
+    public function new_message(string $name, string $email, string $phone_number,string $message): void
     {
         $stmt = $this -> pdo -> prepare ("INSERT INTO msg_form (name,email,phone,message) VALUES(:name,:email,:phone_number,:message)");
         $stmt -> bindparam(":name",$name);

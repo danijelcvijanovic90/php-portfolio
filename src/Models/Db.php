@@ -10,4 +10,7 @@ class Db
     {
         $this -> pdo = new \PDO ("mysql:host=". $_ENV['DB_HOST'] . ";dbname=".$_ENV['DB_NAME'],$_ENV['DB_ROOT'],$_ENV['DB_PASSWORD']);
     }
+
+    
 }
+
