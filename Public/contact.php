@@ -1,3 +1,13 @@
+<?php 
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+USE PROJECT\src\Controllers\Form_message_controller;
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +34,7 @@
           </p>
 
           <form action="send.php" method="POST" class="p-4 border rounded bg-white">
-
+            <input type="hidden" name="message">
             <div class="mb-3">
               <label for="name" class="form-label">Your Name</label>
               <input type="text" class="form-control" id="name" name="name" required>
