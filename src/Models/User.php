@@ -62,4 +62,18 @@ class User extends Db
         return $user ?: null;
     }
 
+    public function get_user_by_company (int $company_id) :array
+    {
+        $stmt = $this -> pdo -> prepare 
+        ("SELECT u.*, c.name AS company_name 
+        FROM users u
+        LEFT JOIN company c ON u.company_id = c.id
+        WHERE u.company_id = :company_id");
+
+        $stmt -> bindparam (":company_id",$company_id);
+        $stmt -> execute();
+
+        return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+    }
+
 } 
