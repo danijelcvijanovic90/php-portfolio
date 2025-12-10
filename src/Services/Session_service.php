@@ -14,10 +14,7 @@ class Session_service
 
     public function destroy_session()
     {
-        if(session_status() === PHP_SESSION_NONE)
-        {
             session_destroy();
-        }
     }
 
     public function get_from_session(string $key): mixed

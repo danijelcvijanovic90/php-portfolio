@@ -1,7 +1,7 @@
 <?php
 
 namespace PROJECT\Models;
-
+use PDO;
 
 class Company extends Db
 {

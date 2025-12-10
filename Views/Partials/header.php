@@ -1,3 +1,12 @@
+<?php 
+
+require_once __DIR__ . "/../../vendor/autoload.php";
+use PROJECT\Services\Session_service;
+
+$session = new Session_service();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +25,11 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+    <ul class="navbar-nav ms-auto">
+
+        
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>
@@ -27,12 +39,30 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
+
+        <?php if(isset($_SESSION['logedin_admin'])): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="admin_dashboard.php">Settings</a>
+        </li>
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION['logedin'])): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="user_dashboard.php">User settings</a>
+        </li>
+        <?php endif; ?>
+
+        <?php if (!isset($_SESSION['logedin_admin']) && !isset($_SESSION['logedin'])): ?>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Login</a>
         </li>
+        <?php  else: ?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="logout.php">Logout</a>
         </li>
+        <?php endif; ?>
+
+        
       </ul>
     </div>
   </div>
