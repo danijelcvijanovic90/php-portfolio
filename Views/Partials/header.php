@@ -20,7 +20,7 @@ $session = new Session_service();
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="index.php">Orderly</a>
+    <a class="navbar-brand" href="/orderly/public/index.php">Orderly</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,24 +31,24 @@ $session = new Session_service();
 
         
         <li class="nav-item">
-          <a class="nav-link" href="index.php">Home</a>
+          <a class="nav-link" href="/orderly/public/index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.php">About</a>
+          <a class="nav-link" href="/orderly/public/about.php">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
+          <a class="nav-link" href="/orderly/public/contact.php">Contact</a>
         </li>
 
         <?php if(isset($_SESSION['logedin_admin'])): ?>
         <li class="nav-item">
-          <a class="nav-link" href="admin_dashboard.php">Settings</a>
+          <a class="nav-link" href="/orderly/public/admin/admin_dashboard.php">Settings</a>
         </li>
         <?php endif; ?>
 
         <?php if(isset($_SESSION['logedin'])): ?>
         <li class="nav-item">
-          <a class="nav-link" href="user_dashboard.php">User settings</a>
+          <a class="nav-link" href="/user_dashboard.php">User settings</a>
         </li>
         <?php endif; ?>
 
@@ -58,7 +58,7 @@ $session = new Session_service();
         </li>
         <?php  else: ?>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link" href="/orderly/public/logout.php">Logout</a>
         </li>
         <?php endif; ?>
 

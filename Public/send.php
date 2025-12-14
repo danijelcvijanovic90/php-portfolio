@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $controller->message($_POST);
 }
 
-// nakon upisa u bazu preusmjeri korisnika
+
 header("Location: contact.php?success=1");
 exit;

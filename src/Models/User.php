@@ -19,7 +19,7 @@ class User extends Db
         return $user > 0 ;// The function returns true if the username exists, false otherwise.
     }
 
-    public function add_user(string $name,string $surname,string $email,string $password,string $role,int $company_id,string $username): void
+    public function add_user(string $name,string $surname,?string $email,string $password,string $role,int $company_id,string $username): void //email can be string or null
     {
         $stmt = $this -> pdo -> prepare ("INSERT INTO user (name,surname,email,password,role,company_id,username) VALUES(:name,:surname,:email,:password,:role,:company_id,:username)");
         $stmt -> bindparam (":name",$name);
@@ -66,7 +66,7 @@ class User extends Db
     {
         $stmt = $this -> pdo -> prepare 
         ("SELECT u.*, c.name AS company_name 
-        FROM users u
+        FROM user u
         LEFT JOIN company c ON u.company_id = c.id
         WHERE u.company_id = :company_id");
 

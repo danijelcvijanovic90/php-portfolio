@@ -8,7 +8,7 @@ $session = new Session_service();
 $session -> destroy_session();
 
 
-header("location: index.php");
+header("location: /orderly/public/index.php");
 exit;
 
 

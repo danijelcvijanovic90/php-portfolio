@@ -23,7 +23,7 @@
                     <i class="bi bi-building fs-1"></i>
                     <h5 class="card-title mt-3">Companies</h5>
                     <p class="card-text">View all companies</p>
-                    <a href="companies.php" class="btn btn-light mt-auto">Open</a>
+                    <a href="../Admin/company_settings_url.php" class="btn btn-light mt-auto">Open</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     <i class="bi bi-people fs-1"></i>
                     <h5 class="card-title mt-3">Users</h5>
                     <p class="card-text">Manage users</p>
-                    <a href="users.php" class="btn btn-light mt-auto">Open</a>
+                    <a href="../admin/get_users_and_companies.php" class="btn btn-light mt-auto">Open</a>
                 </div>
             </div>
         </div>

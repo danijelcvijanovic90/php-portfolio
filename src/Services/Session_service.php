@@ -13,7 +13,8 @@ class Session_service
     }
 
     public function destroy_session()
-    {
+    {       
+            session_unset();
             session_destroy();
     }
 
@@ -25,5 +26,18 @@ class Session_service
     public function set_session(string $key,mixed $value): void
     {
         $_SESSION[$key] = $value;
+    }
+
+    public function remove(string $key): void
+    {
+        unset($_SESSION[$key]);
+    }
+
+    public function is_admin()
+    {
+        if($_SESSION['logedin_admin'])
+        {
+            return true;
+        }
     }
 }
