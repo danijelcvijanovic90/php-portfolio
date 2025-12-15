@@ -12,7 +12,7 @@ class Session_service
         }
     }
 
-    public function destroy_session()
+    public function destroy_session(): void
     {       
             session_unset();
             session_destroy();
@@ -33,7 +33,7 @@ class Session_service
         unset($_SESSION[$key]);
     }
 
-    public function is_admin()
+    public function is_admin(): bool
     {
         if($_SESSION['logedin_admin'])
         {

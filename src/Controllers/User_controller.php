@@ -96,5 +96,11 @@ class User_controller
         
         return $user->get_all_users();
     }
+
+    public function user_by_company($company_id): array
+    {
+        $user=new User();
+        return $users = $user->get_user_by_company($company_id);
+    }
    
 }

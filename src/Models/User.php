@@ -64,7 +64,7 @@ class User extends Db
 
     public function get_user_by_company (int $company_id) :array
     {
-        $stmt = $this -> pdo -> prepare 
+        $stmt = $this->pdo-> prepare 
         ("SELECT u.*, c.name AS company_name 
         FROM user u
         LEFT JOIN company c ON u.company_id = c.id

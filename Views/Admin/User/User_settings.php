@@ -130,33 +130,17 @@ use PROJECT\Services\Session_service;
 
     <!-- Users by Company -->
     <div class="tab-pane fade" id="company-users" role="tabpanel">
-      <form action="admin_users_by_company.php" method="GET" class="mb-3">
+      <form action="../admin/user_company_view.php" method="GET" class="mb-3">
         <div class="mb-3">
-          <label for="company_filter" class="form-label">Company</label>
-          <input type="text" name="company" id="company_filter" class="form-control" placeholder="Enter company name">
+          <select name="company_id" id="company_id" class="form-select">
+            <?php foreach($companies as $c): ?>
+            <option value="<?=$c['id']?>"> <?=$c['name']?> </option>
+            <?php endforeach; ?>
+          </select>
         </div>
         <button type="submit" class="btn btn-secondary">Filter</button>
       </form>
-
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- PHP loop for filtered users -->
-          <?php
-          // Example:
-          // foreach($filtered_users as $user){
-          //   echo "<tr><td>{$user['id']}</td><td>{$user['username']}</td><td>{$user['email']}</td><td>{$user['role']}</td></tr>";
-          // }
-          ?>
-        </tbody>
-      </table>
+ 
     </div>
 
   </div>
