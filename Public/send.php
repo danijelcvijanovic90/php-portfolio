@@ -8,12 +8,19 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . "/..");
 $dotenv->load();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+
+$controller = new Form_message_controller();
+$controller->message($_POST);
+
+if($controller)
 {
-    $controller = new Form_message_controller();
-    $controller->message($_POST);
+    header("Location: contact.php?success=1");
+    exit;
+}
+else
+{
+    echo "Form not valid";
 }
 
 
-header("Location: contact.php?success=1");
-exit;
+

@@ -71,7 +71,7 @@
                     <i class="bi bi-chat-square fs-1"></i>
                     <h5 class="card-title mt-3">Messages</h5>
                     <p class="card-text">Manage messages</p>
-                    <a href="messages.php" class="btn btn-light mt-auto">Open</a>
+                    <a href="../admin/view_all_messages.php" class="btn btn-light mt-auto">Open</a>
                 </div>
             </div>
         </div>

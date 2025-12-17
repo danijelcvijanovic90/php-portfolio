@@ -80,8 +80,13 @@ USE PROJECT\src\Controllers\Form_message_controller;
             </div>
 
             <div class="mb-3">
-              <label for="phone" class="form-label">Phone Number (optional)</label>
-              <input type="text" class="form-control" id="phone" name="phone">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="subject" class="form-control" id="subject" name="subject" required>
             </div>
 
             <div class="mb-3">
