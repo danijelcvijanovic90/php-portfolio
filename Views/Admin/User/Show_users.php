@@ -15,20 +15,26 @@
   <table class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
-        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
         <th>Username</th>
+        <th>Company</th>
         <th>Email</th>
         <th>Role</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <?php if (!empty($user_company)): ?>
         <?php foreach ($user_company as $user): ?>
           <tr>
-            <td><?= $user['id'] ?></td>
-            <td><?= $user['username'] ?></td>
+            <td><?= $user['name'] ?></td>
+            <td><?= $user['surname'] ?></td>
+            <td><?= $user['username'] ?></td> 
+            <td><?= $user['company_name'] ?></td>
             <td><?= $user['email'] ?></td>
             <td><?= $user['role'] ?></td>
+            <td><a href="/orderly/public/admin/delete_user.php?id=<?=$user['id']?>" onclick="return confirm('Are you sure?');" class="btn btn-primary">Delete</a></td>
           </tr>
         <?php endforeach; ?>
       <?php else: ?>

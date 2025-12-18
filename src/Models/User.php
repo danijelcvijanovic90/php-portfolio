@@ -76,4 +76,16 @@ class User extends Db
         return $stmt -> fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function get_all_users_and_companies(): array
+    {
+        $stmt=$this->pdo->prepare("SELECT u.id,u.name,u.surname,u.username,u.email,u.role, c.name AS company_name
+        FROM user u
+        LEFT JOIN company c ON u.company_id=c.id
+        ORDER by c.name ASC");
+
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
 } 

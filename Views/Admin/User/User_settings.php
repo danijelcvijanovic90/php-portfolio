@@ -24,9 +24,6 @@ use PROJECT\Services\Session_service;
       <button class="nav-link active" id="add-user-tab" data-bs-toggle="tab" data-bs-target="#add-user" type="button" role="tab">Add User</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="delete-user-tab" data-bs-toggle="tab" data-bs-target="#delete-user" type="button" role="tab">Delete User</button>
-    </li>
-    <li class="nav-item" role="presentation">
       <button class="nav-link" id="list-users-tab" data-bs-toggle="tab" data-bs-target="#list-users" type="button" role="tab">All Users</button>
     </li>
     <li class="nav-item" role="presentation">
@@ -88,16 +85,7 @@ use PROJECT\Services\Session_service;
       </form>
     </div>
 
-    <!-- Delete User -->
-    <div class="tab-pane fade" id="delete-user" role="tabpanel">
-      <form action="admin_delete_user.php" method="POST">
-        <div class="mb-3">
-          <label for="user_id_delete" class="form-label">User ID to Delete</label>
-          <input type="number" name="user_id" id="user_id_delete" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-danger">Delete User</button>
-      </form>
-    </div>
+    
 
     <!-- All Users -->
     <div class="tab-pane fade" id="list-users" role="tabpanel">
@@ -106,22 +94,27 @@ use PROJECT\Services\Session_service;
         <thead>
           <tr>
             <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
             <th>Username</th>
             <th>Email</th>
             <th>Company</th>
             <th>Role</th>
+            <th>Delete user</th>
           </tr>
         </thead>
 
         <tbody>
-          <!-- PHP loop to list users -->
           <?php foreach($users as $user): ?>
             <tr>
               <td><?=$user['id']?></td>
+              <td><?=$user['name']?></td>
+              <td><?=$user['surname']?></td>
               <td><?=$user['username']?></td>
               <td><?=$user['email']?></td>
-              <td><?=$user['company_id'] ?></td>
+              <td><?=$user['company_name'] ?></td>
               <td><?=$user['role']?></td>
+              <td><a href="/orderly/public/admin/delete_user.php?id=<?=$user['id']?>" class="btn btn-primary" onclick="return confirm ('Are you sure?');">Delete</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

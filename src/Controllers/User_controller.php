@@ -94,7 +94,7 @@ class User_controller
     {
         $user = new User();
         
-        return $user->get_all_users();
+        return $user->get_all_users_and_companies();
     }
 
     public function user_by_company($company_id): array
