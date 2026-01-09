@@ -27,6 +27,4 @@ else
     $products=[];
 }
 
-
-
 require_once __DIR__ . "/../../Views/admin/products/products.php";

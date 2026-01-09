@@ -10,6 +10,16 @@
 </head>
 <body>
 
+ <?php if(!empty($_SESSION['success'])): ?>
+    <div class="alert alert-success d-flex justify-content-center"><?= $_SESSION['success']; ?></div>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
+
+<?php if(!empty($_SESSION['error'])): ?>
+    <div class="alert alert-danger"><?= $_SESSION['error']; ?></div>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+
 <?php require_once __DIR__ . "/../partials/header.php"; ?>
 
 <div class="container py-5">

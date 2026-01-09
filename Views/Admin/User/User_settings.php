@@ -1,9 +1,3 @@
-<?php
-
-use PROJECT\Services\Session_service;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +8,19 @@ use PROJECT\Services\Session_service;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <?php require_once __DIR__ . "\..\..\Partials\Header.php" ?>
+
+ <?php if(!empty($_SESSION['success'])): ?>
+    <div class="alert alert-success d-flex justify-content-center"><?= $_SESSION['success']; ?></div>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
+
+<?php if(!empty($_SESSION['error'])): ?>
+    <div class="alert alert-danger"><?= $_SESSION['error']; ?></div>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+
 <div class="container mt-5">
   <h2>User Settings</h2>
 
@@ -33,22 +39,8 @@ use PROJECT\Services\Session_service;
 
   <!-- Tab panes -->
   <div class="tab-content mt-3 ">
+
     <!-- Add User -->
-
-    <?php
-    $session = new Session_service();
-
-    if (isset($_SESSION['success'])): ?>
-    <div class="alert alert-success">
-      <?= ($session->get_from_session('success')) ?>
-    </div>
-    <?php
-    $session->remove('success');
-    endif;
-    ?>  
-
-  <!-- if session success show message get from session[$key] and unset session -success. Message stay until refresh -->
-
     <div class="tab-pane fade show active " id="add-user" role="tabpanel">
       <input type="hidden" name="add_user">
       <form action="../admin/add_user.php" method="POST">

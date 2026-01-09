@@ -35,6 +35,7 @@
                 <div class="card-body">
                     <form action="update_user.php" method="POST">
                         <input type="hidden" name="id" value="<?=$user_info['id']?>">
+                        <input type="hidden" name="password_update" value="<?=$user_info['password_update'] ?>">
                         
 
                         <!-- Name -->
@@ -65,6 +66,16 @@
                         <div class="mb-3">
                             <label class="form-label">Password</label>
                             <input type="password" name="password" class="form-control">
+                            <small class="text-muted">
+                                Leave empty if you don't want to change password
+                            </small>
+                        </div>
+
+                        <!-- Password -->
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="confirm_password" class="form-control">
                             <small class="text-muted">
                                 Leave empty if you don't want to change password
                             </small>

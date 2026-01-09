@@ -17,16 +17,6 @@ $user_id=(int)$_SESSION['user_id'];
 $user_controller=new User_controller();
 $user=$user_controller->show_user_by_id($user_id);
 
-$user_check=$user_controller->password_not_changed_check_by_user_id($user_id);
-
-if(!$user_check)
-{
-    header ("location: change_password.php");
-    exit;
-}
-
- 
-require_once __DIR__ . "/../../Views/User/User_dashboard.php";
 
 
-
+require_once __DIR__ . "/../../views/user/user_settings.php";

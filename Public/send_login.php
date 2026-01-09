@@ -10,7 +10,6 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . "/..");
 $dotenv->load();
 
-
 $send_data = new User_controller;
 
 if(isset($_POST['login']))

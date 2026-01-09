@@ -12,12 +12,20 @@ $dotenv->load();
 $session=new Session_service();
 $check=$session->is_admin();
 
+$user_controller = new User_controller();
+$user=$user_controller->new_user($_POST);
 
-if(isset($_POST['add_user']))
+if($user)
 {
-    $user = new User_controller();
-    $user->new_user($_POST);
+    $session->set_session('success','New user added!');
 }
+else
+{
+    $session->set_session('error','Error, user not added!');
+}
+
+header("location: get_users_and_companies.php");
+exit;
 
 
 

@@ -37,6 +37,7 @@ class Session_service
     {
         if(!$_SESSION['logedin_admin'])
         {
+            session_destroy();
             header ("location: /orderly/public/login.php");
             exit;
         }
@@ -47,10 +48,16 @@ class Session_service
     {
         if(!$_SESSION['logedin_user'])
         {
+            session_destroy();
             header ("location: /orderly/public/login.php");
             exit;
         }
         return true;
+    }
+
+    public function password_changed(): bool
+    {
+        
     }
 
 }

@@ -23,36 +23,15 @@ USE PROJECT\src\Controllers\Form_message_controller;
   <?php require_once __DIR__ . "/../views/partials/header.php"; ?>
 
   
- <?php if(isset($_GET['success']) && $_GET['success'] == 1): ?>
-  
-  <div id="success-message" style="
-      background-color: #d4edda;
-      color: #155724;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-      margin: 10px auto;
-      max-width: 500px;
-      font-weight: bold;
-  ">
-    Message sent.
-  </div>
+  <?php if(!empty($_SESSION['success'])): ?>
+    <div class="alert alert-success d-flex justify-content-center"><?= $_SESSION['success']; ?></div>
+    <?php unset($_SESSION['success']); ?>
+  <?php endif; ?>
 
-  <script>
-    // hide message after 3 secs
-    setTimeout(function() {
-      const msg = document.getElementById('success-message');
-      if(msg) msg.style.display = 'none';
-
-      // remove parameter success from URL 
-      const url = new URL(window.location);
-      url.searchParams.delete('success');
-      window.history.replaceState({}, document.title, url.toString());
-    }, 3000);
-    // JS part - ChatGpt - Works good!
-  </script>
-  
-<?php endif; ?>
+  <?php if(!empty($_SESSION['error'])): ?>
+    <div class="alert alert-danger d-flex justify-content-center"><?= $_SESSION['error']; ?></div>
+    <?php unset($_SESSION['error']); ?>
+  <?php endif; ?>
 
 
   <section class="py-5 bg-light">

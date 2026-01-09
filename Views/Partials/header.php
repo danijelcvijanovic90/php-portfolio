@@ -48,7 +48,7 @@ $session = new Session_service();
 
         <?php if(isset($_SESSION['logedin_user'])): ?>
         <li class="nav-item">
-          <a class="nav-link" href="/user_dashboard.php">User settings</a>
+          <a class="nav-link" href="/orderly/public/user/user_dashboard.php">User settings</a>
         </li>
         <?php endif; ?>
 
