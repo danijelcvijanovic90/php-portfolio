@@ -124,4 +124,35 @@ class Menu extends Db
 
         return $stmt->fetchColumn();
     }
+
+    public function user_orders(int $user_id,int $current_week): array
+    {
+        $stmt=$this->pdo->prepare("SELECT o.id,m.day,ml.name,c.name as category_name 
+        FROM orders as o
+        INNER JOIN menu as m ON o.menu_id=m.id
+        INNER JOIN meals as ml ON o.meal_id=ml.id
+        INNER JOIN category as c ON ml.category_id=c.id
+        WHERE user_id=:user_id
+        AND current_week=:current_week
+        ORDER BY menu_id
+        ");
+        $stmt->bindparam(":user_id",$user_id);
+        $stmt->bindparam(":current_week",$current_week);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete_order_by_user(int $user_id,int $order_id): bool
+    {
+        $stmt=$this->pdo->prepare("DELETE FROM orders WHERE user_id=:user_id AND id=:order_id");
+        $stmt->bindparam(":user_id",$user_id);
+        $stmt->bindparam(":order_id",$order_id);
+        $stmt->execute();
+
+        return $stmt->fetchColumn()>0;
+    }
+
+
+
 }

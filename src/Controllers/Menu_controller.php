@@ -86,5 +86,36 @@ class Menu_controller
         return $add_to_menu=$menu->add_meal_to_user_menu($user_id,$menu_id,$current_week,$meal_id);
     }
 
+    public function get_current_week(int $user_id): int
+    {
+        $menu=new Menu();
+        return $current_week=$menu->get_current_week($user_id);
+    }
+
+    public function user_orders(int $user_id,string $week_start, int $current_week): array
+    {
+        $current_date=date("Y-m-d");
+        $days_diff=(new DateTime($current_date))->diff(new DateTime($week_start))->days;
+        $current_week_now=floor($days_diff/7);
+
+        $menu=new Menu();
+
+        if($current_week_now == $current_week)
+        {
+            return $orders=$menu->user_orders($user_id,$current_week);
+        }
+
+        else
+        {
+            return [];
+        }
+    }
+
+    public function delete_order_by_user(int $user_id,int $order_id): bool
+    {
+        $menu=new Menu();
+        return $delete_user=$menu->delete_order_by_user($user_id,$order_id);
+    }
+
     
 }
