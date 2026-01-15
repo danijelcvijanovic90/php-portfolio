@@ -37,7 +37,7 @@
                 <!-- DAY SELECT -->
                 <div class="col-md-3">
                     <label class="form-label">Day</label>
-                    <select name="day" class="form-select">
+                    <select name="day_id" class="form-select">
                         <option value="0">All days</option>
                         <?php foreach ($days as $day):?>
                             <option value="<?=$day['id'];?>">

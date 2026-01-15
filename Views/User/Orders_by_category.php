@@ -41,7 +41,7 @@
         <div class="col-lg-8 mb-4">
             <input type="hidden" name='user_id' value='<?=$user_id?>'>
             <h3 class="mb-4">Weekly Menu</h3>
-            <?php foreach($grouped_menu as $day => $meals): ?>
+            <?php foreach($grouped_order as $day => $meals): ?>
                 <div class="card mb-4">
                     <div class="card-header fw-bold"><?= ucfirst($day) ?></div>
                     <div class="card-body p-0">

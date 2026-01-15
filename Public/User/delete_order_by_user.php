@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use PROJECT\Controllers\Menu_controller;
+use PROJECT\Controllers\Order_controller;
 use PROJECT\Services\Session_service;
 use Dotenv\Dotenv;
 
@@ -15,8 +15,8 @@ $session->is_user();
 $user_id=(int)$_SESSION['user_id'];
 $order_id=(int)$_POST['order_id'];
 
-$menu_controller = new Menu_controller();
-$delete_order=$menu_controller->delete_order_by_user($user_id,$order_id);
+$order_controller = new Order_controller();
+$delete_order=$order_controller->delete_order_by_user($user_id,$order_id);
 
  if (!$delete_order) 
     {
