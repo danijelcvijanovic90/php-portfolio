@@ -17,7 +17,7 @@ class Menu extends Db
 
     public function get_all_days(): array
     {
-        $stmt=$this->pdo->prepare("SELECT day FROM menu");
+        $stmt=$this->pdo->prepare("SELECT * FROM menu");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

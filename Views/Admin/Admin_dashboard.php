@@ -35,7 +35,7 @@
                     <i class="bi bi-basket fs-1"></i>
                     <h5 class="card-title mt-3">Orders</h5>
                     <p class="card-text">View all orders</p>
-                    <a href="orders.php" class="btn btn-light mt-auto">Open</a>
+                    <a href="orders_admin.php" class="btn btn-light mt-auto">Open</a>
                 </div>
             </div>
         </div>
